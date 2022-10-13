@@ -201,3 +201,18 @@ dat %>%
 # learned about today to find out whether the average running time 
 # of feature films has increased in recent years.
 
+.....
+
+# compare 2 means
+# 1. two means
+    # average running time of all films vs average of best picture winners
+# 2. two sample sizes 
+    # overall n (minus missing values for run time )
+    nrow(is.na(dat$runtime)) # no
+    dat %>%
+      summarise(mean_run_time = mean(runtime, na.rm = TRUE),
+                n = n())
+# 3. standard deviations
+
+
+

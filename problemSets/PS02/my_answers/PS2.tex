@@ -97,57 +97,65 @@
 	
 	\item [(a)]
 	Calculate the $\chi^2$ test statistic by hand/manually (even better if you can do "by hand" in \texttt{R}).\\
-	\vspace{7cm}
+	\vspace{0.2cm}
+	
+	\lstinputlisting[firstline=8, lastline=72]{Code.R}
 	
 	\item [(b)]
 	Now calculate the p-value from the test statistic you just created (in \texttt{R}).\footnote{Remember frequency should be $>$ 5 for all cells, but let's calculate the p-value here anyway.}  What do you conclude if $\alpha = 0.1$?\\
 	
+	\lstinputlisting[firstline=73, lastline=76]{Code.R}
+	
 	\newpage
 	\item [(c)] Calculate the standardized residuals for each cell and put them in the table below.
-	\vspace{1cm}
+	\vspace{0.2cm}
 	
+	\lstinputlisting[firstline=79, lastline=119]{Code.R}
+	
+	\newpage
 	\begin{table}[h]
 		\centering
 		\begin{tabular}{l | c c c }
 			& Not Stopped & Bribe requested & Stopped/given warning \\
 			\\[-1.8ex] 
 			\hline \\[-1.8ex]
-			Upper class  &  &  &  \\
+			Upper class  & 0.3220306 & -1.641957  & 1.523026 \\
 			\\
-			Lower class &  &   &   \\
+			Lower class & -0.3220306 &  1.641957 &  -1.523026  \\
 			
 		\end{tabular}
 	\end{table}
 	
 	
-	\vspace{7cm}
+	\vspace{1cm}
 	\item [(d)] How might the standardized residuals help you interpret the results?  
+	
+	\item[] Standardised residuals are a relative measure of how different each observed value is from the expected value predicted by the null hypothesis, which predicts there will be no difference between the class groups in treatment by the police from the proportion of class groups in the total sample. 
+	\item [] When the null hypothesis is true, standardised residuals have a normal distribution and have a mean of zero, meaning 0 is the balancing point for the data. The equal magnitude in each direction (positive and negative) in the above table indicates an even fluctuation around 0, which would provide some evidence in favour of the null hypothesis wherein there is no association between class and treatment. Though some of the values have what would a appear to be a notable magnitude, none exceed the value of 2, a cutoff which is generally statistically significant at $\alpha = 0.01$. Without too much investigation, the table above gives an indication that we do not have sufficient evidence for an association to reject the null hypothesis, affirming our above finding in part (a) and (b). Thus, we cannot say anything about the difference between the standardised residuals in different cells, as our conclusions would not meet the level of statistical significance anyway. 
 	
 \end{enumerate}
 \newpage
 
 \section*{Question 2 (40 points): Economics}
-Chattopadhyay and Duflo were interested in whether women promote different policies than men.\footnote{Chattopadhyay and Duflo. (2004). ``Women as Policy Makers: Evidence from a Randomized Policy Experiment in India. \textit{Econometrica}. 72 (5), 1409-1443.} Answering this question with observational data is pretty difficult due to potential confounding problems (e.g. the districts that choose female politicians are likely to systematically differ in other aspects too). Hence, they exploit a randomized policy experiment in India, where since the mid-1990s, $\frac{1}{3}$ of village council heads have been randomly reserved for women. A subset of the data from West Bengal can be found at the following link: \url{https://raw.githubusercontent.com/kosukeimai/qss/master/PREDICTION/women.csv}\\
-
-\noindent Each observation in the data set represents a village and there are two villages associated with one GP (i.e. a level of government is called "GP"). Figure~\ref{fig:women_desc} below shows the names and descriptions of the variables in the dataset. The authors hypothesize that female politicians are more likely to support policies female voters want. Researchers found that more women complain about the quality of drinking water than men. You need to estimate the effect of the reservation policy on the number of new or repaired drinking water facilities in the villages.
+"...The authors hypothesize that female politicians are more likely to support policies female voters want. Researchers found that more women complain about the quality of drinking water than men. You need to estimate the effect of the reservation policy on the number of new or repaired drinking water facilities in the villages."
 \vspace{.5cm}
-\begin{figure}[h!]
-	\caption{\footnotesize{Names and description of variables from Chattopadhyay and Duflo (2004).}}
-	\vspace{.5cm}
-	\centering
-	\label{fig:women_desc}
-	\includegraphics[width=1.1\textwidth]{../../../../graphics/women_desc.png}
-\end{figure}		
 
-\newpage
 \begin{enumerate}
 	\item [(a)] State a null and alternative (two-tailed) hypothesis. 
+	\item [H0]: the reservation policy is not associated with the number of new or repaired drinking water facilities i.e. the two variables are statistically independent 
 	
-	\vspace{6cm}
+	\item [H1]: the reservation policy is associated, in an unspecified direction, with the number of new or repaired drinking water facilities in the villages
+	
+	\vspace{0.5cm}
 	\item [(b)] Run a bivariate regression to test this hypothesis in \texttt{R} (include your code!).
 	
-	\vspace{6cm}
+	\lstinputlisting[firstline=131, lastline=143]{Code.R}
+	\item[] We reject the null hypothesis that there is no difference between group means at the 5 per cent significance level, i.e. $\beta_1 \neq 0$
+	
+	\vspace{0.5cm}
 	\item [(c)] Interpret the coefficient estimate for reservation policy. 
+	
+	\item[] The coefficient estimate for reservation policy is represented in the summary() output by the cell 'reserved'/'Estimate', which has a value of 9.252. This value is the difference in group-specific estimations for the output variable 'water'. In other words, there is a sizeable (given the relative values of the water variable) difference in the regression model's predictions for each group, where the groups are separated by villages who maintain a reserved position for female politicians, and villages who don't. Therefore we find evidence suggesting an association between the reservation policy and the number of new or repaired water facilities. 
 \end{enumerate}
 
 \end{document}
