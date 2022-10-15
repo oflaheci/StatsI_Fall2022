@@ -142,4 +142,19 @@ summary(lm1)
 
 # t-value: 6.446, p-value: 4.22e-10, reject the null hypothesis
 
+# ANOVA
+
+# anova(lm1)
+# RegSS <- sum((lm1$fitted.values-mean(fempol$water))^2)
+# RegSS
+# SSE <- sum((fempol$water-lm1$fitted.values)^2)
+# SSE
+
+# fstat <- (RegSS/1)/(SSE/320)
+# fstat
+
+# pf(fstat,1,320, lower.tail = FALSE)
+
+
+
 
