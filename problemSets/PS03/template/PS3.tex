@@ -84,9 +84,17 @@
 \vspace{.25cm}
 \noindent We are interested in knowing how the difference in campaign spending between incumbent and challenger affects the incumbent's vote share. 
 	\begin{enumerate}
-		\item Run a regression where the outcome variable is \texttt{voteshare} and the explanatory variable is \texttt{difflog}.	\vspace{5cm}
-		\item Make a scatterplot of the two variables and add the regression line. 	\vspace{7cm}
-		\item Save the residuals of the model in a separate object.	\vspace{7cm}
+		\item Run a regression where the outcome variable is \texttt{voteshare} and the explanatory variable is \texttt{difflog}.	
+		\lstinputlisting[firstline=15, lastline=18]{code.R}
+		\vspace{5cm}
+		\item Make a scatterplot of the two variables and add the regression line. 
+		\vspace{1cm}
+		\item Save the residuals of the model in a separate object.	
+		\begin{figure}
+			\includegraphics[width=0.75\linewidth]{sc_plot1.png}
+		\end{figure}
+		\lstinputlisting[firstline=43, lastline=45]{code.R}
+		\vspace{1cm}
 		\item Write the prediction equation.
 	\end{enumerate}
 	
