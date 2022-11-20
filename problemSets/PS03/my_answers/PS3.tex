@@ -85,17 +85,19 @@
 \noindent We are interested in knowing how the difference in campaign spending between incumbent and challenger affects the incumbent's vote share. 
 	\begin{enumerate}
 		\item Run a regression where the outcome variable is \texttt{voteshare} and the explanatory variable is \texttt{difflog}.	
-		\lstinputlisting[firstline=15, lastline=18]{code.R}
+		\lstinputlisting[firstline=17, lastline=20]{code.R}
 		\vspace{5cm}
 		\item Make a scatterplot of the two variables and add the regression line. 
+			\begin{figure}
+			\includegraphics[width=0.75\linewidth]{sc_plot1.png}
+			\label{Fig1}
+		\end{figure}
 		\vspace{1cm}
 		\item Save the residuals of the model in a separate object.	
-		\begin{figure}
-			\includegraphics[width=0.75\linewidth]{sc_plot1.png}
-		\end{figure}
-		\lstinputlisting[firstline=43, lastline=45]{code.R}
+		\lstinputlisting[firstline=44, lastline=45]{code.R}
 		\vspace{1cm}
 		\item Write the prediction equation.
+		\item[] Y = 0.579031 + 0.041666X
 	\end{enumerate}
 	
 \newpage
@@ -103,10 +105,18 @@
 \section*{Question 2}
 \noindent We are interested in knowing how the difference between incumbent and challenger's spending and the vote share of the presidential candidate of the incumbent's party are related.	\vspace{.25cm}
 	\begin{enumerate}
-		\item Run a regression where the outcome variable is \texttt{presvote} and the explanatory variable is \texttt{difflog}.	\vspace{5cm}
+		\item Run a regression where the outcome variable is \texttt{presvote} and the explanatory variable is \texttt{difflog}.
+		\lstinputlisting[firstline=15, lastline=18]{code.R}
 		\item Make a scatterplot of the two variables and add the regression line. 	\vspace{5cm}
-		\item Save the residuals of the model in a separate object.	\vspace{5cm}
+		\begin{figure}
+			\includegraphics[width=0.75\linewidth]{sc_plot2.png}
+			\label{Fig2}
+		\end{figure}
+		\item Save the residuals of the model in a separate object.	
+		\lstinputlisting[firstline=82, lastline=82]{code.R}
+		\vspace{1cm}
 		\item Write the prediction equation.
+		\item[]Y = 0.507583 + 0.023837X 
 	\end{enumerate}
 	
 	\newpage	
@@ -116,10 +126,16 @@
 	\vspace{.25cm}
 	\begin{enumerate}
 		\item Run a regression where the outcome variable is \texttt{voteshare} and the explanatory variable is \texttt{presvote}.
-			\vspace{5cm}
+		\lstinputlisting[firstline=97, lastline=100]{code.R}
+			\vspace{2cm}
 		\item Make a scatterplot of the two variables and add the regression line. 
-			\vspace{5cm}
+		\begin{figure}
+			\includegraphics[width=0.75\linewidth]{sc_plot3.png}
+			\label{Fig3}
+		\end{figure}
+			\vspace{2cm}
 		\item Write the prediction equation.
+		\item[] Y = 0.441330 + 0.388018X 
 	\end{enumerate}
 	
 
@@ -127,9 +143,16 @@
 \section*{Question 4}
 \noindent The residuals from part (a) tell us how much of the variation in \texttt{voteshare} is $not$ explained by the difference in spending between incumbent and challenger. The residuals in part (b) tell us how much of the variation in \texttt{presvote} is $not$ explained by the difference in spending between incumbent and challenger in the district.
 	\begin{enumerate}
-		\item Run a regression where the outcome variable is the residuals from Question 1 and the explanatory variable is the residuals from Question 2.	\vspace{6cm}
-		\item Make a scatterplot of the two residuals and add the regression line. 	\vspace{6cm}
+		\item Run a regression where the outcome variable is the residuals from Question 1 and the explanatory variable is the residuals from Question 2.	
+		\lstinputlisting[firstline=136, lastline=137]{code.R}
+		\item Make a scatterplot of the two residuals and add the regression line. 	
+		\vspace{1cm}
+		\begin{figure}
+			\includegraphics[width=0.75\linewidth]{sc_plot4.png}
+			\label{Fig4}
+		\end{figure}
 		\item Write the prediction equation.
+		\item[] Y = -4.860e-18 + 2.569e-01X
 	\end{enumerate}
 	
 	\newpage	
@@ -137,9 +160,12 @@
 \section*{Question 5}
 \noindent What if the incumbent's vote share is affected by both the president's popularity and the difference in spending between incumbent and challenger? 
 	\begin{enumerate}
-		\item Run a regression where the outcome variable is the incumbent's \texttt{voteshare} and the explanatory variables are \texttt{difflog} and \texttt{presvote}.	\vspace{5cm}
-		\item Write the prediction equation.	\vspace{5cm}
+		\item Run a regression where the outcome variable is the incumbent's \texttt{voteshare} and the explanatory variables are \texttt{difflog} and \texttt{presvote}.
+		\lstinputlisting[firstline=155, lastline=157]{code.R}
+		\item Write the prediction equation.
+		\item[] Y = 0.4486442 + 0.0355431X1 + 0.0117637X2
 		\item What is it in this output that is identical to the output in Question 4? Why do you think this is the case?
+		\item[] The identical outputs include the statistics on the values of the residuals, including the interquartile ranges and their centring roughly around 0, and  the residual standard errors (almost identical). The multiple regression model is regressed on the same variables which produced the linear models with the residuals used in Q4. The results of Q4 describe how much of the variation in voteshare unexplained by the linear model in Q1 can be explained by the variation in presvote which is also unexplained by the model in Q2. In other words, the residuals plotted against each other are telling us, after removing the effect of difflog (i.e. the linear models) from presvote and voteshare, if there's a relationship between voteshare and presvote. Hence, the multiple regression model, which aims to indicate how much variation in the outcome variable (voteshare) can be explained by variation in the input variables, will show some of the same results, indicating the interaction effects of the input variables. 
 	\end{enumerate}
 
 

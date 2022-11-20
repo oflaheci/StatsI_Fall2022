@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.14)  15 NOV 2022 16:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.14)  20 NOV 2022 22:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -891,29 +891,59 @@ nput line 88.
  (./code.R
 consecutive:
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 1
-6.
+8.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 16.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 18.
 ) [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<sc_plot1.png, id=27, 505.89pt x 505.89pt>
+<sc_plot1.png, id=27, 728.4816pt x 452.6511pt>
 File: sc_plot1.png Graphic file (type png)
 <use sc_plot1.png>
-Package pdftex.def Info: sc_plot1.png  used on input line 94.
-(pdftex.def)             Requested size: 352.31625pt x 352.32199pt.
- (./code.R) [2 <./sc_plot1.png>] [3] [4] [5] [6] (./PS3.aux)
+Package pdftex.def Info: sc_plot1.png  used on input line 92.
+(pdftex.def)             Requested size: 352.31625pt x 218.9139pt.
+ (./code.R
+consecutive:
+) [2 <./sc_plot1.png>] (./code.R
+consecutive:
+)
+<sc_plot2.png, id=37, 728.4816pt x 452.6511pt>
+File: sc_plot2.png Graphic file (type png)
+<use sc_plot2.png>
+Package pdftex.def Info: sc_plot2.png  used on input line 112.
+(pdftex.def)             Requested size: 352.31625pt x 218.9139pt.
+ (./code.R
+consecutive:
+) [3 <./sc_plot2.png>] [4] (./code.R
+consecutive:
+)
+<sc_plot3.png, id=57, 728.4816pt x 452.6511pt>
+File: sc_plot3.png Graphic file (type png)
+<use sc_plot3.png>
+Package pdftex.def Info: sc_plot3.png  used on input line 133.
+(pdftex.def)             Requested size: 352.31625pt x 218.9139pt.
+ [5 <./sc_plot3.png>] (./code.R
+consecutive:
+)
+<sc_plot4.png, id=70, 728.4816pt x 452.6511pt>
+File: sc_plot4.png Graphic file (type png)
+<use sc_plot4.png>
+Package pdftex.def Info: sc_plot4.png  used on input line 151.
+(pdftex.def)             Requested size: 352.31625pt x 218.9139pt.
+ [6 <./sc_plot4.png>] (./code.R
+consecutive:
+) [7] (./PS3.aux)
 Package rerunfilecheck Info: File `PS3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26219 strings out of 478268
- 465565 string characters out of 5846347
- 810661 words of memory out of 5000000
- 43920 multiletter control sequences out of 15000+600000
+ 26274 strings out of 478268
+ 466271 string characters out of 5846347
+ 810743 words of memory out of 5000000
+ 43942 multiletter control sequences out of 15000+600000
  479698 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,7n,89p,3235b,1387s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -928,10 +958,10 @@ cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
 /texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/
 texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/te
 xlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on PS3.pdf (6 pages, 924782 bytes).
+Output written on PS3.pdf (7 pages, 3946391 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
- 30 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
