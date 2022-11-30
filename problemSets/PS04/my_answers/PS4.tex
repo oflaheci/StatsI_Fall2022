@@ -98,34 +98,42 @@ help(Prestige)
 	
 	\item [(a)]
 	Create a new variable \texttt{professional} by recoding the variable \texttt{type} so that professionals are coded as $1$, and blue and white collar workers are coded as $0$ (Hint: \texttt{ifelse}).
-	
-	\vspace{6cm}
+	\lstinputlisting[firstline=14, lastline=17]{code.R}
+	\vspace{0.5cm}
 	
 	
 	\item [(b)]
 	Run a linear model with \texttt{prestige} as an outcome and \texttt{income}, \texttt{professional}, and the interaction of the two as predictors (Note: this is a continuous $\times$ dummy interaction.)
-	
-	\vspace{6cm}
-	\item [(c)]
-	Write the prediction equation based on the result.
+	% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com% Date and time: Wed, Nov 30, 2022 - 18:25:46
+	\begin{table}[!htbp] \centering   \caption{Regression Results}   \label{} \begin{tabular}{@{\extracolsep{5pt}}lc} \\[-1.8ex]\hline \hline \\[-1.8ex]  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ \cline{2-2} \\[-1.8ex] & prestige \\ \hline \\[-1.8ex]  income & 0.003$^{***}$ \\   & (0.0005) \\   & \\  professional & 37.781$^{***}$ \\   & (4.248) \\   & \\  income:professional & $-$0.002$^{***}$ \\   & (0.001) \\   & \\  Constant & 21.142$^{***}$ \\   & (2.804) \\   & \\ \hline \\[-1.8ex] Observations & 98 \\ R$^{2}$ & 0.787 \\ Adjusted R$^{2}$ & 0.780 \\ Residual Std. Error & 8.012 (df = 94) \\ F Statistic & 115.878$^{***}$ (df = 3; 94) \\ \hline \hline \\[-1.8ex] \textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ \end{tabular} \end{table}
 	
 \newpage
+	\item [(c)]
+	Write the prediction equation based on the result.
+	\item[] $Y_i = 21.142 + 0.003(X_i) + 37.781(D_i) + (-0.002(D_i)(X_i))$
+	\item[] $Y_i = 21.142 + 0.003(X_i) + 37.781(D_i) - 0.002(D_i)(X_i)$
+	\vspace{1cm}
+	
 	\item [(d)]
 	Interpret the coefficient for \texttt{income}.
+	\item[] The income coefficient $\beta_1$ is the prestige increase associated with a 1-dollar increase in income for non-professionals, on average 0.003 points of an increase.
 	
-	\vspace{10cm}	
+	\vspace{1cm}	
 	\item [(e)]
 	Interpret the coefficient for \texttt{professional}.
+	\item[] The professional coefficient $\beta_2$ indicates part of the effect of being a professional on prestige. When considered along with the interaction term, professionals are expected to have, on average and holding income constant, 37.779 more prestige points than non-professionals at the same income amount.
 	
-	\newpage
+	\vspace{1cm}
 	\item [(f)]
 	What is the effect of a \$1,000 increase in income on prestige score for professional occupations? In other words, we are interested in the marginal effect of income when the variable \texttt{professional} takes the value of $1$. Calculate the change in $\hat{y}$ associated with a \$1,000 increase in income based on your answer for (c).
+	\lstinputlisting[firstline = 66 , lastline = 84]{code.R}
 	
-	\vspace{10cm}
+	\vspace{1cm}
 	
 	
 	\item [(g)]
 	What is the effect of changing one's occupations from non-professional to professional when her income is \$6,000? We are interested in the marginal effect of professional jobs when the variable \texttt{income} takes the value of $6,000$. Calculate the change in $\hat{y}$ based on your answer for (c).
+	\lstinputlisting[firstline = 86 , lastline = 91]{code.R}
 	
 	
 \end{enumerate}
@@ -161,17 +169,24 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 \vspace{.5cm}
 \begin{enumerate}
 	\item [(a)] Use the results from a linear regression to determine whether having these yard signs in a precinct affects vote share (e.g., conduct a hypothesis test with $\alpha = .05$).
+	\lstinputlisting[firstline=95, lastline=114]{code.R}
+	\item[] The first coefficient i.e. $\beta_1$ is the average increase in voteshare for McAuliffe's opponent for a change from a no sign precinct to a precinct with signs, i.e. a 4.2 percent average increase in voteshare. This increase is significant at the 98 percent confidence interval ($\alpha = 0.02$) as are the other coefficients.
 	
-	\newpage		
+	\vspace{0.5cm}
 	\item [(b)]  Use the results to determine whether being
 	next to precincts with these yard signs affects vote
 	share (e.g., conduct a hypothesis test with $\alpha = .05$).
+	\item[] As above, the change from a precinct with no signs to a precinct which is adjacent to one with signs is significant when $\alpha = 0.02$, with a 4.2 percent on average increase in voteshare for the opponent. It is interesting that the effect is equal to having signs in one's own precinct, and this similarity is worth investigating further. 
 	
-	\vspace{7cm}
+	\vspace{0.5cm}
 	\item [(c)] Interpret the coefficient for the constant term substantively.
-	\vspace{7cm}
+	\item[] The constant coefficient is the y-intercept of the model, i.e. the value of voteshare for McAuliffe's opponent when not in a precinct with lawn signs. In this model, vote share for the opponent in such a precinct is around 30 percent.
+	
+	\vspace{0.5cm}
 	
 	\item [(d)] Evaluate the model fit for this regression.  What does this	tell us about the importance of yard signs versus other factors that are not modeled?
+	\lstinputlisting[firstline=121, lastline=132]{code.R}
+	\item[] The R-Squared gives an indication that this model only very marginally explains variation in voteshare, i.e. below 10 percent. However, calculating the F-statistic which is significant when $\alpha = 0.02$, indicates that the regression model is at least somewhat useful in explaining that variation, i.e. not all of the coefficients are equal to zero. This tells us that while yard signs might explain a small amount of the opponent's share of the vote, other factors not measured are needed to reliably explain or predict the overall variation.
 	
 \end{enumerate}  
 
